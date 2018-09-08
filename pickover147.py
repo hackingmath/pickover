@@ -42,26 +42,59 @@ def checkList(a):
     '''checks whether the list is the
     solution to the square'''
      
-    if sum(a[:4]) == s[0] and \
-       sum(a[4:8]) == s[1] and \
-       sum(a[8:12]) == s[2] and \
-       sum(a[12:]) == s[3] and \
-       sum([a[0],a[5],a[10],a[15]])== s[4] and \
-       sum([a[3],a[7],a[11],a[15]]) == s[5] and \
-       sum([a[2],a[6],a[10],a[14]]) == s[6] and \
-       sum([a[1],a[5],a[9],a[13]]) == s[7] and \
-       sum([a[0],a[4],a[8],a[12]]) == s[8]:
+    if sum(a[:4]) == s[0] and \ #row 1
+       sum(a[4:8]) == s[1] and \ #row 2
+       sum(a[8:12]) == s[2] and \ #row 3
+       sum(a[12:]) == s[3] and \ #row 4
+       sum([a[0],a[5],a[10],a[15]])== s[4] and \ #diagonal
+       sum([a[3],a[7],a[11],a[15]]) == s[5] and \ #column 4
+       sum([a[2],a[6],a[10],a[14]]) == s[6] and \ #column 3
+       sum([a[1],a[5],a[9],a[13]]) == s[7] and \ #column 2
+       sum([a[0],a[4],a[8],a[12]]) == s[8]: #column 1
         return True
     return False
 
+#infinite loop to shuffle the nums list then check it
 while True:
     newList = shuffleList(nums)
     if checkList(newList):
         printList(newList)
         print()
 
-
+'''Some solutions:
        
+0 1 0 1 
+3 0 2 0 
+0 0 1 0 
+2 1 0 3 
 
-#printList(nums)
-#print(renderList(shuffleList(nums)))
+1 0 0 1 
+3 0 2 0 
+1 0 0 0 
+0 2 1 3 
+
+0 0 2 0 
+3 1 0 1 
+0 1 0 0 
+2 0 1 3
+
+2 0 0 0 
+1 1 0 3 
+0 1 0 0 
+2 0 3 1 
+
+1 0 0 1 
+2 0 3 0 
+1 0 0 0 
+1 2 0 3
+
+1 0 0 1 
+2 0 3 0 
+0 1 0 0 
+2 1 0 3
+
+0 2 0 0 
+3 0 1 1 
+0 0 1 0 
+2 0 1 3
+'''
